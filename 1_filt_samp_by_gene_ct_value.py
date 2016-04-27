@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-
+# Written by Miguel Brown, 2016-Apr-27.  Takes table with molecule counts, samples in head, genes as row labels and
+# a min gene count threshold to use
+# Creates training set
 import sys
 
 fh = sys.argv[1]

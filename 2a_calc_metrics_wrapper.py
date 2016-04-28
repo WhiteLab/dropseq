@@ -34,7 +34,8 @@ for line in fh:
         out_pre = 'Gene_metrics' + str(fct)
         job_list.append(cmd + cur_file + ' ' + out_pre)
         cur = 1
-    out.write(head)
+        out.write(head)
+    out.write(line)
     cur += 1
 out.close()
 job_manager(job_list, th)

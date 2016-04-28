@@ -1,13 +1,22 @@
 #!/usr/bin/env python
-# Written by Miguel Brown, 2016-Apr-27.  Takes table with molecule counts, samples in head, genes as row labels and
-# a min gene count threshold to use
-# Creates training set
+'''
+Written by Miguel Brown, 2016-Apr-27. Create a training set for downstream drop-seq PCA analysis
+Usage: ./1_filter_table_by_gene_ct_value.py <table> <gt>
+
+Arguments:
+<table>     table with molecule counts, samples in head, genes as row labels
+<ct>        min gene count threshold for sample inclusion
+
+Options:
+-h
+'''
 import sys
+from docopt import docopt
 
-fh = sys.argv[1]
-ct = int(sys.argv[2])
+args = docopt(__doc__)
+ct = int(args['<ct>'])
 
-table = open(fh, 'r')
+table = open(args['<table>'], 'r')
 head = next(table)
 
 samp = head.rstrip('\n').split('\t')
@@ -43,8 +52,7 @@ for i in xrange(1, len(samp), 1):
 sys.stdout.write('\n')
 sys.stderr.write('Printing values for ' + str(s_ct) + ' cell samples meeting criteria\n')
 
-
-table = open(fh, 'r')
+table = open(args['<table>'], 'r')
 skip = next(table)
 for line in table:
     data = line.rstrip('\n').split('\t')
@@ -53,7 +61,7 @@ for line in table:
         try:
             sys.stdout.write('\t' + data[i])
         except:
-            sys.stderr.write('Index to print excced array size for gene ' + data[0] + '.  Was at ' + str(i) + '\n')
+            sys.stderr.write('Index to print exceed array size for gene ' + data[0] + '.  Was at ' + str(i) + '\n')
             exit(1)
     sys.stdout.write('\n')
 table.close()

@@ -18,10 +18,11 @@ cur = 1
 fct = 1
 flist = []
 cur_file = fn + str(fct)
+out_pre = 'Gene_metrics' + str(fct)
 out = open(cur_file, 'w')
 job_list = []
 cmd = '/home/ubuntu/TOOLS/dropseq/2_calc_mean_variance_bin.py '
-job_list.append(cmd + cur_file)
+job_list.append(cmd + cur_file + ' ' + out_pre)
 head = next(fh)
 out.write(head)
 for line in fh:
@@ -30,7 +31,8 @@ for line in fh:
         fct += 1
         cur_file = fn + str(fct)
         out = open(cur_file, 'w')
-        job_list.append(cmd + cur_file)
+        out_pre = 'Gene_metrics' + str(fct)
+        job_list.append(cmd + cur_file + ' ' + out_pre)
         cur = 1
     out.write(head)
     cur += 1

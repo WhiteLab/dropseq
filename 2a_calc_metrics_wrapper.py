@@ -17,7 +17,7 @@ line_split = int(lc[0])/int(th)
 cur = 1
 fct = 1
 flist = []
-cur_file = fn + str(fct)
+cur_file = fn + str(fct) + 'split'
 out_pre = 'Gene_metrics' + str(fct)
 out = open(cur_file, 'w')
 job_list = []
@@ -29,7 +29,7 @@ for line in fh:
     if cur > line_split:
         out.close()
         fct += 1
-        cur_file = fn + str(fct)
+        cur_file = fn + str(fct) + 'split'
         out = open(cur_file, 'w')
         out_pre = 'Gene_metrics' + str(fct)
         job_list.append(cmd + cur_file + ' ' + out_pre)

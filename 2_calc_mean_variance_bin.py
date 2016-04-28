@@ -8,7 +8,7 @@ from statistics import mean
 from statistics import variance
 
 fn = sys.argv[1]
-out = sys.arg[2]
+out = sys.argv[2]
 fh = open(fn, 'r')
 head = next(fh)
 

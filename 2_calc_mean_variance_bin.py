@@ -13,7 +13,7 @@ fh = open(fn, 'r')
 head = next(fh)
 
 stats_dict = {}
-gm = open('Gene_metrics.txt', 'w')
+gm = open(out, 'w')
 gm.write('Gene\tmean molecule count\tvariance\tdispersion measure\n')
 
 j = 1

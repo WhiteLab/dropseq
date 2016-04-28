@@ -10,10 +10,10 @@ fn = sys.argv[1]
 th = sys.argv[2]
 
 # create sub_files to process
-lc = subprocess.check_output('wc -l ' + fn, shell=True)
+lc_info = subprocess.check_output('wc -l ' + fn, shell=True)
 fh = open(fn, 'r')
-
-line_split = int(lc)/int(th)
+lc = lc_info.split()
+line_split = int(lc[0])/int(th)
 cur = 1
 fct = 1
 flist = []

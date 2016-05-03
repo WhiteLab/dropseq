@@ -7,7 +7,7 @@ sudo pip install -r req.txt
 
 ## Running preprocessing scripts
 #### 1_filt_samp_by_gene_ct_value.py
-Usage: ./1_filter_table_by_gene_ct_value.py <table> <ct> > 1_output_filename.txt 2> filter.log
+Usage: ./1_filter_table_by_gene_ct_value.py \<table\> \<ct\> \> 1_output_filename.txt 2\> filter.log
 (log will have status updates on where it is in the file)
 EXAMPLE:
 ```

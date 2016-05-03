@@ -19,7 +19,7 @@ Arguments:
 
 #### 2_calc_mean_variance_bin.py
 
-Usage: ./2_calc_mean_variance_bin.py <table> <out> <hflag> 2> metrics.log
+Usage: ./2_calc_mean_variance_bin.py \<table\> \<out\> \<hflag\> 2\> metrics.log
 (log will have progress of script)
 EXAMPLE: 
 ```
@@ -32,7 +32,7 @@ Arguments:
 
 #### 3_bin_norm_sel.py
 
-Usage: ./3_bin_norm_sel.py <table> <score> 2> bin.log
+Usage: ./3_bin_norm_sel.py \<table\> \<score\> 2\> bin.log
 (log will have progress and brief description of statistical output)
 EXAMPLE:
 ```

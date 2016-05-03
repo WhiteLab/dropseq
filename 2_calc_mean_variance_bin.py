@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 '''
 Written by Miguel Brown, 2016-Apr-27. Create a training set for downstream drop-seq PCA analysis
-Usage: ./2_calc_mean_variance_bin.py <table> <out>
+Usage: ./2_calc_mean_variance_bin.py <table> <out> <hflag>
 
 Arguments:
 <table>     table with molecule counts, samples in head, genes as row labels
 <out>       output file name rather than stdout
+<hflag>     0 if input table has a header row, 0 if not
 
 Options:
--h
+-h  prints help.  note that if hlag is 1, it wll not pint the header, you'll have to prepend that to the file yourself
+before moving on!
 '''
 import sys
 from statistics import mean
@@ -18,12 +20,16 @@ from docopt import docopt
 args = docopt(__doc__)
 fn = args['<table>']
 out = args['<out>']
+hflag = int(args['<hflag>'])
+
 fh = open(fn, 'r')
-head = next(fh)
+if hflag == 1:
+    head = next(fh)
 
 stats_dict = {}
 gm = open(out, 'w')
-gm.write('Gene\tmean molecule count\tvariance\tdispersion measure\n')
+if hflag == 1:
+    gm.write('Gene\tmean molecule count\tvariance\tdispersion measure\n')
 
 j = 1
 m = 500

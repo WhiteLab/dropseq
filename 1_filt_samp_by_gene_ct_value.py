@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''
 Written by Miguel Brown, 2016-Apr-27. Create a training set for downstream drop-seq PCA analysis
-Usage: ./1_filter_table_by_gene_ct_value.py <table> <gt>
+Usage: ./1_filter_table_by_gene_ct_value.py <table> <ct> > 1_output_filename.txt
 
 Arguments:
 <table>     table with molecule counts, samples in head, genes as row labels
@@ -25,16 +25,17 @@ g_ct = {}
 for i in xrange(1, len(samp), 1):
     g_ct[samp[i]] = 0
 
-j=1
+j = 1
 m = 500
 for info in table:
     if j % m == 0:
         sys.stderr.write('Processing line ' + str(j) + '\n')
     data = info.rstrip('\n').split('\t')
-    for i in xrange(1, len(data), 1):
-        cur = float(data[i])
-        if cur > 0:
-            g_ct[samp[i]] += 1
+    # INPUT VALUES ASSUMED AS INT!  May have to change for other applications
+    fdata = map(int, data[1:])
+    for i in xrange(0, len(fdata), 1):
+        if fdata[i] > 0:
+            g_ct[samp[(i+1)]] += 1
     j += 1
 table.close()
 

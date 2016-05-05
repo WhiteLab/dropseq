@@ -2,6 +2,7 @@
 # Written by Miguel Brown, 2016-Apr-27.  Takes table with gene metrics and selects for high variability
 '''
 Written by Miguel Brown, 2016-Apr-27. Bins and normalizes genes for last step in drop-seq training set creation
+Prints to stdout, specify > output_file at end!!!
 Usage: ./3_bin_norm_sel.py <table> <score>
 
 Arguments:

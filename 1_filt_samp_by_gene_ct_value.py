@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 '''
 Written by Miguel Brown, 2016-Apr-27. Create a training set for downstream drop-seq PCA analysis
-Usage: ./1_filter_table_by_gene_ct_value.py <table> <ct> > 1_output_filename.txt
-
+Prints to stdout, specify > output_file at end!!!
+Usage: ./1_filter_table_by_gene_ct_value.py <table> <ct>
 Arguments:
 <table>     table with molecule counts, samples in head, genes as row labels
 <ct>        min gene count threshold for sample inclusion
